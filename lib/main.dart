@@ -11,26 +11,21 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Row and Column',
+      debugShowCheckedModeBanner: false,
+      title: 'Alignment Widget',
       home: Scaffold(
-        appBar: AppBar(title: Text("Row and Column")),
-        body: Center(
+        body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              Text("Malang", style: TextStyle(fontSize: 40, fontWeight: FontWeight.w400)),
+              Text('25°C', style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold)),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  IconContainerWidget(bgColor: Colors.red, iconColor: Colors.white, icon: Icons.favorite, text: 'Favourite Icon'),
-                  IconContainerWidget(bgColor: Colors.blue, iconColor: Colors.white, icon: Icons.thumb_up, text: 'Thumb up Icon',),
-                ],
-              ),
-              SizedBox(height: 5,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconContainerWidget(bgColor: Colors.green, iconColor: Colors.white, icon: Icons.settings, text: 'Settings Icon'),
-                  IconContainerWidget(bgColor: Colors.orange, iconColor: Colors.white, icon: Icons.person, text: 'Person Icon'),
+                  IconContainerWidget(temp: '20°C', icon: Icons.wb_sunny, day: "Minggu"),
+                  IconContainerWidget(temp: '23°C', icon: Icons.cloudy_snowing, day: "Senin"),
+                  IconContainerWidget(temp: '22°C', icon: Icons.cloud, day: "Selasa"),
                 ],
               ),
             ],
