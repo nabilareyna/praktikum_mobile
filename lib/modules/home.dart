@@ -57,6 +57,43 @@ class Home extends StatelessWidget {
                 child: const Text('Tugas Modul 3', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
               ),
             ),
+            InkWell(
+              onTap: () => Get.toNamed('/praktikum_4'),
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(border: Border.all(color: Colors.blue), color: Colors.blue.shade200, borderRadius: BorderRadius.circular(10)),
+                child: const Text('Praktikum Modul 4', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+              ),
+            ),
+            InkWell(
+              onTap: () => Get.toNamed('/tugas_4'),
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(border: Border.all(color: Colors.blue), color: Colors.blue.shade200, borderRadius: BorderRadius.circular(10)),
+                child: const Text('Tugas Modul 4', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+              ),
+            ),
+            InkWell(
+              onTap: () => Get.toNamed('/praktikum_5'),
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(border: Border.all(color: Colors.blue), color: Colors.blue.shade200, borderRadius: BorderRadius.circular(10)),
+                child: const Text('Praktikum Modul 5', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+              ),
+            ),
+            InkWell(
+              onTap: () => Get.toNamed('/praktikum_5_card'),
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(border: Border.all(color: Colors.blue), color: Colors.blue.shade200, borderRadius: BorderRadius.circular(10)),
+                child: const Text('Praktikum Modul 5 Card', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+              ),
+            ),
+            
           ],
         ),
       ),

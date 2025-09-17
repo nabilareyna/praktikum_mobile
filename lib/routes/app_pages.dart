@@ -6,6 +6,10 @@ import 'package:praktikum_mobile_1/modules/modul_2/ui/praktikum_2.dart';
 import 'package:praktikum_mobile_1/modules/modul_2/ui/tugas_2.dart';
 import 'package:praktikum_mobile_1/modules/modul_3/ui/praktikum_3.dart';
 import 'package:praktikum_mobile_1/modules/modul_3/ui/tugas_3.dart';
+import 'package:praktikum_mobile_1/modules/modul_4/ui/praktikum_4.dart';
+import 'package:praktikum_mobile_1/modules/modul_4/ui/tugas_4.dart';
+import 'package:praktikum_mobile_1/modules/modul_5/ui/praktikum_5.dart';
+import 'package:praktikum_mobile_1/modules/modul_5/ui/praktikum_5_card.dart';
 import 'package:praktikum_mobile_1/routes/app_routes.dart';
 
 class AppPages {
@@ -16,5 +20,9 @@ class AppPages {
     GetPage(name: AppRoutes.tugas_2, page: () => Tugas2()),
     GetPage(name: AppRoutes.praktikum_3, page: () => const Praktikum3()),
     GetPage(name: AppRoutes.tugas_3, page: () => Tugas3()),
+    GetPage(name: AppRoutes.praktikum_4, page: () => Praktikum4()),
+    GetPage(name: AppRoutes.tugas_4, page: () => Tugas4()),
+    GetPage(name: AppRoutes.praktikum_5, page: () => Praktikum5()),
+    GetPage(name: AppRoutes.praktikum5Card, page: () => Praktikum5Card())
   ];
 }
