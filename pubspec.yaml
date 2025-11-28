@@ -10,11 +10,31 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.7.2
+  http: ^1.5.0
+  intl: ^0.20.2
+  json_annotation: ^4.9.0
+  readmore: ^3.0.0
+  simple_circular_progress_bar: ^1.0.2
+  geolocator: any
+  geocoding: ^4.0.0
+  google_fonts: ^6.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  build_runner: ^2.4.8
+  json_serializable: ^6.9.5
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/icon/boy.png
+    - assets/icon/clipboard.png
+    - assets/icon/homeschooling.png
+    - assets/icon/marks.png
+    - assets/icon/pencil.png
+    - assets/icon/timetable.png
+    - assets/icon/house.png
+    - assets/icon/island.png
