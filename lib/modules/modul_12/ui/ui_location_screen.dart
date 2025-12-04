@@ -9,47 +9,45 @@ class UiLocationScreen extends StatefulWidget {
   State<UiLocationScreen> createState() => _UiLocationScreenState();
 }
 
+// ... (Bagian import dan class definition tidak berubah)
+
 class _UiLocationScreenState extends State<UiLocationScreen> {
   String? _kecamatan;
   String? _kota;
   bool _isLoading = false;
   String? _errorMessage;
+
+  // *** Definisikan Latitude dan Longitude di sini ***
+  final double _defaultLatitude = -7.9404; 
+  final double _defaultLongitude = 112.6053; 
+
   Future<void> _getLocation() async {
     // 1. Set status loading dan reset data
     setState(() {
-      _isLoading = true; // Menandai aplikasi sedang memproses lokasi
-      _errorMessage = null; // Menghapus pesan error sebelumnya
-      _kecamatan = null; // Menghapus data kecamatan sebelumnya
-      _kota = null; // Menghapus data kota sebelumnya
+      _isLoading = true;
+      _errorMessage = null;
+      _kecamatan = null;
+      _kota = null;
     });
 
     try {
-      // 2. Cek apakah layanan lokasi (GPS) aktif
-      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-      if (!serviceEnabled) {
-        // Jika GPS tidak aktif, tampilkan pesan error
-        throw Exception('Layanan lokasi tidak aktif. Mohon aktifkan GPS.');
-      }
+      // *** PERUBAHAN UTAMA DIMULAI DI SINI ***
 
-      // 3. Periksa izin akses lokasi
-      LocationPermission permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        // Jika izin belum diberikan, minta izin kepada pengguna
-        permission = await Geolocator.requestPermission();
-        if (permission == LocationPermission.denied) {
-          throw Exception('Izin lokasi ditolak oleh pengguna.');
-        }
-      }
-      if (permission == LocationPermission.deniedForever) {
-        // Jika izin ditolak permanen, beri instruksi untuk mengubah pengaturan
-        throw Exception('Izin lokasi ditolak permanen. Anda harus mengubahnya di pengaturan aplikasi.');
-      }
+      // 2. & 3. Langkah pengecekan layanan dan izin LOKASI DIHAPUS,
+      //    karena kita tidak lagi mengambil posisi perangkat saat ini.
 
-      // 4. Ambil posisi perangkat saat ini
-      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high); // Presisi tinggi
+      // 4. Ganti langkah pengambilan posisi dengan koordinat yang sudah ditentukan
+      //    Kita tidak lagi menggunakan Geolocator.getCurrentPosition().
+
+      // Ambil koordinat yang sudah ditentukan (hardcode)
+      final double lat = _defaultLatitude;
+      final double lon = _defaultLongitude;
 
       // 5. Lakukan reverse geocoding untuk mengubah koordinat menjadi alamat
-      List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
+      List<Placemark> placemarks = await placemarkFromCoordinates(lat, lon);
+      //                                                          ^     ^
+      //                                                          |     |
+      //                   Gunakan koordinat hardcode di sini ----|-----|
 
       if (placemarks.isNotEmpty) {
         // Ambil data lokasi pertama dari hasil reverse geocoding
@@ -60,7 +58,7 @@ class _UiLocationScreenState extends State<UiLocationScreen> {
         });
       } else {
         // Jika tidak ada data alamat yang ditemukan
-        throw Exception('Tidak dapat menemukan informasi alamat.');
+        throw Exception('Tidak dapat menemukan informasi alamat untuk koordinat yang diberikan.');
       }
     } catch (e) {
       // 6. Tangani error dan tampilkan pesan
@@ -77,6 +75,7 @@ class _UiLocationScreenState extends State<UiLocationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // ... (Bagian widget build tidak berubah)
     return Scaffold(
       appBar: AppBar(title: const Text('Lokasi Saya', style: TextStyle(color: Colors.white)), backgroundColor: const Color(0xFF1A237E)),
       body: Padding(

@@ -24,6 +24,7 @@ import 'package:praktikum_mobile_1/modules/modul_7/home_demo_route.dart';
 import 'package:praktikum_mobile_1/modules/modul_7/tugas_7.dart';
 import 'package:praktikum_mobile_1/modules/modul_8/home_8.dart';
 import 'package:praktikum_mobile_1/modules/modul_9/praktikum_9.dart';
+import 'package:praktikum_mobile_1/modules/modul_9/tugas_9.dart';
 import 'package:praktikum_mobile_1/routes/app_routes.dart';
 
 class AppPages {
@@ -48,6 +49,7 @@ class AppPages {
     GetPage(name: AppRoutes.tugas_7, page: () => const Tugas7()),
     GetPage(name: AppRoutes.praktikum_8, page: () => const Home8()),
     GetPage(name: AppRoutes.praktikum_9, page: () => const Praktikum9()),
+    GetPage(name: AppRoutes.tugas_9, page: () => Tugas9()),
     GetPage(name: AppRoutes.praktikum_10, page: () => Praktikum10()),
     GetPage(
       name: AppRoutes.praktikum_11,

@@ -185,6 +185,15 @@ class Home extends StatelessWidget {
                 ),
               ),
               InkWell(
+                onTap: () => Get.toNamed('/tugas_9'),
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(border: Border.all(color: Colors.blue), color: Colors.blue.shade200, borderRadius: BorderRadius.circular(10)),
+                  child: const Text('Tugas 9', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                ),
+              ),
+              InkWell(
                 onTap: () => Get.toNamed('/praktikum_10'),
                 child: Container(
                   margin: const EdgeInsets.all(10),

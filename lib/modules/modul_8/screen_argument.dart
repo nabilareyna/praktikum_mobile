@@ -1,6 +1,7 @@
 class ScreenArgument {
+  final String cover;
   final String title;
-  final String subtitle;
   final String description;
-  ScreenArgument({ required this.title, required this.subtitle, required this.description});
+  final String shortDesc;
+  ScreenArgument({required this.cover, required this.title, required this.description, required this.shortDesc});
 }

@@ -1,35 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:praktikum_mobile_1/modules/modul_8/screen_argument.dart';
 
 class Tujuan8 extends StatelessWidget {
   const Tujuan8({super.key});
 
-  static const routeName = '/tujuan';
+  static const routeName = '/extractArguments';
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as ScreenArgument;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
     return Scaffold(
-      appBar: AppBar(title: Text("Halaman Tujuan")),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(args.title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
-            Text(args.subtitle, style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic)),
-            SizedBox(height: 20),
-            Text(args.description, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
-            SizedBox(height: 20),
-            OutlinedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text("Kembali ke Halaman Home"),
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text("Halaman Tujuan"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Get.toNamed('/home');
+          },
+        ),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.maxFinite,
+            margin: EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(color: const Color(0xFFF4F8FB), borderRadius: BorderRadius.circular(8)),
+                  child: Column(
+                    children: [
+                      ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.network(args.cover, fit: BoxFit.cover)),
+                      const SizedBox(height: 15),
+                      Text(args.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 47, 72))),
+                      const SizedBox(height: 10),
+                      Text(args.description, style: const TextStyle(fontSize: 14, color: Color.fromARGB(255, 0, 47, 72))),
+                      const SizedBox(height: 25),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(color: const Color(0xFF0081c9), borderRadius: BorderRadius.circular(8)),
+                              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                              child: const Row(
+                                children: [
+                                  Icon(Icons.arrow_back_ios_outlined, size: 15, color: Color(0xFFF4F8FB)),
+                                  SizedBox(width: 5),
+                                  Text('Kembali ke game', style: TextStyle(fontSize: 15, color: Color(0xFFF4F8FB))),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

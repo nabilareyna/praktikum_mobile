@@ -19,6 +19,7 @@ abstract class AppRoutes {
   static const String tugas_7 = '/tugas_7';
   static const String praktikum_8 = '/praktikum_8';
   static const String praktikum_9 = "/praktikum_9";
+  static const String tugas_9 = "/tugas_9";
   static const String praktikum_10 = "/praktikum_10";
   static const String praktikum_11 = "/praktikum_11";
   static const String praktikum_12 = "/praktikum_12";
